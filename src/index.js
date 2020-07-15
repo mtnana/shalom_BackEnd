@@ -1,13 +1,19 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.css';
-import App from './App';
+import './app.css';
+import App from './components/App';
+import Firebase, { FirebaseContext } from './components/Firebase/firebase';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ <FirebaseContext.Provider value={new Firebase()}>
+  <App/>
+ </FirebaseContext.Provider>,
   document.getElementById('root')
 );
 
